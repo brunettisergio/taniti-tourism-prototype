@@ -1,23 +1,101 @@
-#navBar {
-    list-style: none;
-    padding: 0;
+* {
     margin: 0;
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 1.7rem;
-    // font-family: "Bad Script", cursive;
-    // font-family: "Poiret One", sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    li {
-        padding: 14px 20px;
+body {
+    margin: 0 !important;
+    padding: 0 80px !important;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+.site-header {
+    position: relative;
+    padding-bottom: 0;
+    margin: 0 !important;
+    width: 100vw;
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 30px;
+        right: 0;
+        width: calc(70% + 90px);
+        height: 1.5px;
+        background-color: black;
     }
 
-    a {
-        color: black;
-        text-decoration: none;
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: visible;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        height: fit-content;
+        min-height: 100px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-        &:hover {
-            background-color: #575757;
+    .logo-container {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        height: 100px;
+
+        #logo {
+            width: auto;
+            height: 100px;
+            display: block;
+        }
+    }
+
+    #navBar {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border: none;
+        display: flex;
+        overflow: visible;
+        align-items: center;
+        font-size: 27px;
+        // font-family: "Bad Script", cursive;
+        font-family: "Poiret One", sans-serif;
+        gap: 20px;
+        transform: translateY(-15px);
+
+        li {
+            padding: 14px 20px;
+            position: relative;
+
+            &:not(:last-child)::after {
+                content: "|";
+                position: absolute;
+                right: -10px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: black;
+                font-size: 27px;
+            }
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #575757;
+            }
         }
     }
 }
