@@ -49,7 +49,7 @@ export class HomeComponent {
 
         const cardWidth = 700;
         const gap = 15;
-        const padding = 20;
+        const padding = 50;
         const totalContentWidth =
             this.photos.length * cardWidth +
             (this.photos.length - 1) * gap +
