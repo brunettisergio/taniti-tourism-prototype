@@ -7,4 +7,4 @@ import { Component } from '@angular/core';
     templateUrl: './food-and-drinks.html',
     styleUrl: './food-and-drinks.scss',
 })
-export class FoodAndDrinks {}
+export class FoodAndDrinksComponent {}
