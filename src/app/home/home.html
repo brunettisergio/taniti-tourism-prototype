@@ -12,4 +12,25 @@
         rainforest. Explore the mountainous interior, home to a gentle, active
         volcano, or find tranquility in our safe and welcoming harbor.
     </p>
+    <div class="gallery-container">
+        <div
+            class="gallery"
+            [style.transform]="'translateX(' + currentTransform + 'px)'"
+            [style.cursor]="isDragging ? 'grabbing' : 'grab'"
+            (mousedown)="onMouseDown($event)"
+            (mousemove)="onMouseMove($event)"
+            (mouseup)="onMouseUp()"
+            (mouseleave)="onMouseLeave()"
+        >
+            <div
+                class="photo-card"
+                *ngFor="let photo of photos"
+            >
+                <img
+                    [src]="photo.src"
+                    [alt]="photo.alt"
+                />
+            </div>
+        </div>
+    </div>
 </div>
