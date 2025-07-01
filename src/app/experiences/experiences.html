@@ -1,0 +1,155 @@
+<div id="experiences-content">
+    <h1>Island Adventures Await</h1>
+    <p class="intro-text">
+        Discover the magic of Taniti through unforgettable experiences that
+        showcase our island's natural beauty and thrilling adventures.
+    </p>
+
+    <div class="slideshow-container">
+        <div
+            class="slide"
+            [class.active]="currentSlide === 0"
+        >
+            <img
+                src="assets/images/charter.jpg"
+                alt="Boat Charter"
+            />
+            <div class="slide-text">
+                <h3>Boat Charters</h3>
+                <p>
+                    Set sail on a private charter and explore hidden coves and
+                    pristine beaches around the island.
+                </p>
+            </div>
+        </div>
+        <div
+            class="slide"
+            [class.active]="currentSlide === 1"
+        >
+            <img
+                src="assets/images/snorkel.jpg"
+                alt="Snorkeling"
+            />
+            <div class="slide-text">
+                <h3>Snorkeling</h3>
+                <p>
+                    Dive into crystal-clear waters and discover vibrant coral
+                    reefs teeming with tropical marine life
+                </p>
+            </div>
+        </div>
+        <div
+            class="slide"
+            [class.active]="currentSlide === 2"
+        >
+            <img
+                src="assets/images/golf.jpg"
+                alt="Golf"
+            />
+            <div class="slide-text">
+                <h3>Golf Course</h3>
+                <p>
+                    Coming soon next year! A world-class golf course with
+                    stunning ocean views and tropical landscapes
+                </p>
+            </div>
+        </div>
+
+        <div
+            class="slide"
+            [class.active]="currentSlide === 3"
+        >
+            <img
+                src="assets/images/helicopter.jpg"
+                alt="Helicopter"
+            />
+            <div class="slide-text">
+                <h3>Helicopter Rides</h3>
+                <p>
+                    Soar above the island and witness breathtaking aerial views
+                    of volcanoes, beaches, and rainforests
+                </p>
+            </div>
+        </div>
+
+        <div
+            class="slide"
+            [class.active]="currentSlide === 4"
+        >
+            <img
+                src="assets/images/volcano.jpg"
+                alt="Volcano"
+            />
+            <div class="slide-text">
+                <h3>Volcano Sightseeing</h3>
+                <p>
+                    Explore our gentle, active volcano and witness the
+                    incredible geological wonders of Taniti
+                </p>
+            </div>
+        </div>
+
+        <div
+            class="slide"
+            [class.active]="currentSlide === 5"
+        >
+            <img
+                src="assets/images/zipline.jpeg"
+                alt="Zipline"
+            />
+            <div class="slide-text">
+                <h3>Rainforest Zipline</h3>
+                <p>
+                    Experience the thrill of soaring through the tropical canopy
+                    on our exciting zipline adventure
+                </p>
+            </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <button
+            class="nav-btn prev"
+            (click)="previousSlide()"
+        >
+            &#10094;
+        </button>
+        <button
+            class="nav-btn next"
+            (click)="nextSlide()"
+        >
+            &#10095;
+        </button>
+
+        <!-- Dot Indicators -->
+        <div class="dots-container">
+            <span
+                class="dot"
+                [class.active]="currentSlide === index"
+                *ngFor="let slide of slides; let index = index"
+                (click)="goToSlide(index)"
+            >
+            </span>
+        </div>
+    </div>
+
+    <div class="experience-info">
+        <div class="info-card">
+            <h4>Book in Advance</h4>
+            <p>Most experiences require 24-48 hours notice</p>
+        </div>
+        <div class="info-card">
+            <h4>All Skill Levels</h4>
+            <p>Adventures suitable for beginners to experts</p>
+        </div>
+        <div class="info-card">
+            <h4>Local Guides</h4>
+            <p>Expert guides who know the island's hidden gems</p>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h3>Ready for Your Adventure?</h3>
+        <p>Contact our concierge to plan your perfect Taniti experience</p>
+        <button class="cta-button">Plan My Trip</button>
+    </div>
+</div>
