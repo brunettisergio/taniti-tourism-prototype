@@ -1,23 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0 !important;
-    padding: 0 80px !important;
-}
-
-html {
-    margin: 0;
-    padding: 0;
-}
-
 .site-header {
     position: relative;
     padding-bottom: 0;
-    margin: 0 !important;
+    margin: 6px -300px 0 -300px !important;
     width: 100vw;
     box-sizing: border-box;
     left: 0;
@@ -69,7 +53,6 @@ html {
         overflow: visible;
         align-items: center;
         font-size: 27px;
-        // font-family: "Bad Script", cursive;
         font-family: "Poiret One", sans-serif;
         gap: 20px;
         transform: translateY(-15px);
