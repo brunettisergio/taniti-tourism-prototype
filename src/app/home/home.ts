@@ -10,16 +10,16 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent {
     photos = [
-        { src: 'assets/images/beach.jpg', alt: 'Beach' },
-        { src: 'assets/images/charter.jpg', alt: 'Charter' },
-        { src: 'assets/images/hammock.jpg', alt: 'Hammock' },
-        { src: 'assets/images/rainforest.jpg', alt: 'Rainforest' },
-        { src: 'assets/images/volcano.jpg', alt: 'Volcano' },
-        { src: 'assets/images/beach-sunset.jpg', alt: 'Beach Sunset' },
-        { src: 'assets/images/boat.jpg', alt: 'Boat' },
-        { src: 'assets/images/beach-chairs.jpg', alt: 'Beach Chairs' },
-        { src: 'assets/images/hammock-sunset.jpg', alt: 'Hammock Sunset' },
-        { src: 'assets/images/wooden-boat.jpg', alt: 'Wooden Boat' },
+        { src: 'assets/gallery/beach.jpg', alt: 'Beach' },
+        { src: 'assets/gallery/charter.jpg', alt: 'Charter' },
+        { src: 'assets/gallery/hammock.jpg', alt: 'Hammock' },
+        { src: 'assets/gallery/rainforest.jpg', alt: 'Rainforest' },
+        { src: 'assets/gallery/volcano.jpg', alt: 'Volcano' },
+        { src: 'assets/gallery/beach-sunset.jpg', alt: 'Beach Sunset' },
+        { src: 'assets/gallery/boat.jpg', alt: 'Boat' },
+        { src: 'assets/gallery/beach-chairs.jpg', alt: 'Beach Chairs' },
+        { src: 'assets/gallery/hammock-sunset.jpg', alt: 'Hammock Sunset' },
+        { src: 'assets/gallery/wooden-boat.jpg', alt: 'Wooden Boat' },
     ];
 
     isDragging = false;

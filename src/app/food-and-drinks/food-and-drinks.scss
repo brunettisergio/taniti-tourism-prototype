@@ -1,0 +1,297 @@
+$title-font-color: #1e3a8a;
+$border-color: #3b82f6;
+$accent-color: #2563eb;
+
+#food-drinks-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: "Poiret One", sans-serif;
+    line-height: 1.6;
+
+    .page-header {
+        text-align: center;
+        margin-bottom: 3rem;
+
+        h1 {
+            font-size: 2.5rem;
+            color: $title-font-color;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.65rem;
+            color: black;
+            font-weight: 300;
+            margin: 0;
+        }
+    }
+
+    .food-section {
+        margin-bottom: 3rem;
+
+        h2 {
+            font-size: 2rem;
+            color: $title-font-color;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid $border-color;
+            font-weight: 600;
+        }
+
+        .section-intro {
+            font-size: 1.3rem;
+            color: black;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .restaurant-types,
+        .grocery-options,
+        .drink-venues {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .restaurant-category,
+        .grocery-type,
+        .venue-type {
+            background: #f8f8ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid $border-color;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+
+            .category-content {
+                flex: 1;
+                order: 1;
+            }
+
+            .category-image {
+                flex-shrink: 0;
+                width: 300px;
+                height: 200px;
+                border-radius: 8px;
+                overflow: hidden;
+                order: 2;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+
+            // For items without images
+            &:not(.restaurant-category):not(.featured) {
+                display: block;
+            }
+
+            h3 {
+                font-size: 1.55rem;
+                color: $title-font-color;
+                margin-bottom: 0.8rem;
+                font-weight: 600;
+            }
+
+            p {
+                color: black;
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+                font-weight: 300;
+            }
+
+            &.featured {
+                border-left-color: #10b981;
+                background: #f0fdf4;
+
+                .venue-highlight {
+                    background: #dcfce7;
+                    padding: 0.5rem 1rem;
+                    border-radius: 20px;
+                    display: inline-block;
+                    color: #166534;
+                    font-weight: 600;
+                    font-size: 1.25rem;
+                }
+            }
+        }
+
+        .category-details,
+        .store-info {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+            .restaurant-count,
+            .store-count {
+                background: $accent-color;
+                color: white;
+                padding: 0.4rem 0.8rem;
+                border-radius: 15px;
+                font-size: 1.25rem;
+            }
+
+            .cuisine-type,
+            .store-hours {
+                background: #e0f2fe;
+                color: $title-font-color;
+                padding: 0.4rem 0.8rem;
+                border-radius: 15px;
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .info-section {
+        background: #eff6ff;
+        padding: 2rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+
+        h2 {
+            font-size: 1.8rem;
+            color: $title-font-color;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .info-cards {
+            display: grid;
+            gap: 1.5rem;
+
+            .info-card {
+                background: white;
+                padding: 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+                h4 {
+                    font-size: 1.3rem;
+                    color: $title-font-color;
+                    margin-bottom: 0.8rem;
+                    font-weight: 600;
+                }
+
+                p {
+                    color: black;
+                    font-size: 1.2rem;
+                    margin-bottom: 1rem;
+                    font-weight: 300;
+                }
+
+                &.alcohol-hours {
+                    border-left: 4px solid #dc2626;
+
+                    .time-restriction {
+                        display: flex;
+                        gap: 1rem;
+                        align-items: center;
+
+                        .restricted-time {
+                            background: #fee2e2;
+                            color: #dc2626;
+                            padding: 0.4rem 0.8rem;
+                            border-radius: 15px;
+                            font-weight: 600;
+                            font-size: 1.25rem;
+                        }
+
+                        .status {
+                            background: #fecaca;
+                            color: #991b1b;
+                            padding: 0.4rem 0.8rem;
+                            border-radius: 15px;
+                            font-weight: 600;
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+
+                &.drinking-age {
+                    border-left: 4px solid #059669;
+
+                    .age-info {
+                        display: flex;
+                        gap: 1rem;
+                        align-items: center;
+
+                        .age-limit {
+                            background: #10b981;
+                            color: white;
+                            padding: 0.4rem 0.8rem;
+                            border-radius: 15px;
+                            font-weight: 600;
+                            font-size: 1.25rem;
+                        }
+
+                        .enforcement {
+                            background: #d1fae5;
+                            color: #065f46;
+                            padding: 0.4rem 0.8rem;
+                            border-radius: 15px;
+                            font-size: 1.25rem;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Responsive Design
+    @media (max-width: 768px) {
+        padding: 1rem;
+
+        .page-header h1 {
+            font-size: 2rem;
+        }
+
+        .food-section h2 {
+            font-size: 1.6rem;
+        }
+
+        .restaurant-category,
+        .venue-type.featured {
+            flex-direction: column;
+            align-items: stretch;
+
+            .category-content {
+                order: 2;
+            }
+
+            .category-image {
+                order: 1;
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        .grocery-type,
+        .venue-type:not(.featured) {
+            padding: 1rem;
+        }
+
+        .info-section {
+            padding: 1.5rem;
+        }
+
+        .category-details,
+        .store-info,
+        .time-restriction,
+        .age-info {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}
