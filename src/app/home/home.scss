@@ -7,15 +7,16 @@
 
 #hero-image {
     margin-bottom: 0;
-    width: 65%;
+    width: 70%;
     height: auto;
-    border-radius: 3px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 #hero-quote {
     margin-bottom: 0;
     font-family: "Bad Script", cursive;
-    font-size: 37px;
+    font-size: 38px;
     color: whitesmoke;
     position: relative;
     transform: translateY(-190px);
@@ -53,9 +54,9 @@
     min-width: 300px;
     width: 700px;
     height: auto;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     flex-shrink: 0;
 }
 
