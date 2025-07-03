@@ -40,12 +40,20 @@ $accent-color: #2563eb;
             font-weight: 600;
         }
 
+        .faq-container {
+            padding: 2rem 0;
+        }
+
         .faq-item {
             background: #f8f8ff;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             border-radius: 8px;
             border-left: 4px solid $border-color;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 1rem;
+            overflow: hidden;
 
             h3 {
                 font-size: 1.55rem;
@@ -54,7 +62,7 @@ $accent-color: #2563eb;
                 font-weight: 600;
             }
 
-c:\Users\Sergio\Downloads\I-821.pdf            p {
+            p {
                 color: black;
                 font-size: 1.3rem;
                 margin-bottom: 1rem;
@@ -159,6 +167,32 @@ c:\Users\Sergio\Downloads\I-821.pdf            p {
                     }
                 }
             }
+
+            .faq-question {
+                background-color: var(--light-gray);
+                padding: 1rem 1.5rem;
+                cursor: pointer;
+                transition: var(--transition);
+                border: none;
+                width: 100%;
+                text-align: left;
+                font-weight: 500;
+
+                &:hover {
+                    background-color: #e9ecef;
+                }
+
+                &.active {
+                    background-color: var(--primary-blue);
+                    color: white;
+                }
+            }
+
+            .faq-answer {
+                padding: 1rem 1.5rem;
+                background-color: white;
+                border-top: 1px solid #dee2e6;
+            }
         }
     }
 
@@ -243,36 +277,6 @@ c:\Users\Sergio\Downloads\I-821.pdf            p {
                 transform: translateY(-2px);
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             }
-        }
-    }
-
-    // Responsive Design
-    @media (max-width: 768px) {
-        padding: 1rem;
-
-        .page-header h1 {
-            font-size: 2rem;
-        }
-
-        .faq-section h2 {
-            font-size: 1.6rem;
-        }
-
-        .faq-item {
-            padding: 1rem;
-        }
-
-        .reference-grid {
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        }
-
-        .time-info {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .contact-section {
-            padding: 1.5rem;
         }
     }
 }
