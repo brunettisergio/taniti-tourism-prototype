@@ -1,0 +1,493 @@
+$title-font-color: #1e3a8a;
+$border-color: #3b82f6;
+$accent-color: #2563eb;
+
+#lodging-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: "Poiret One", sans-serif;
+    line-height: 1.6;
+
+    .page-header {
+        text-align: center;
+        margin-bottom: 5rem;
+
+        h1 {
+            font-size: 2.5rem;
+            color: $title-font-color;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.65rem;
+            color: black;
+            font-weight: 300;
+            margin: 0;
+        }
+    }
+
+    .lodging-container {
+        display: grid;
+        grid-template-columns: 1fr 450px;
+        gap: 4rem;
+        align-items: start;
+    }
+
+    .listings-section {
+        .intro-text {
+            font-size: 1.5rem;
+            color: black;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .results-info {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f0f8ff;
+            border-radius: 6px;
+            border-left: 4px solid $border-color;
+
+            .results-count {
+                font-size: 1.3rem;
+                color: $title-font-color;
+                font-weight: 600;
+            }
+        }
+
+        .listings-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            background: #f8f8ff;
+            border-radius: 8px;
+            border: 2px dashed #ddd;
+
+            h3 {
+                color: $title-font-color;
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+            }
+
+            p {
+                color: #666;
+                font-size: 1.3rem;
+                margin-bottom: 1.5rem;
+                font-weight: 300;
+            }
+
+            .clear-filters-btn {
+                background: $accent-color;
+                color: white;
+                padding: 0.8rem 1.5rem;
+                border: none;
+                border-radius: 6px;
+                font-size: 1.2rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background 0.3s ease;
+
+                &:hover {
+                    background: #1d4ed8;
+                }
+            }
+        }
+
+        .listing-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            }
+
+            .listing-image {
+                height: 250px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+
+            .listing-content {
+                padding: 1.5rem;
+
+                h3 {
+                    font-size: 1.8rem;
+                    color: $title-font-color;
+                    margin-bottom: 0.5rem;
+                    font-weight: 600;
+                }
+
+                .lodging-type {
+                    display: inline-block;
+                    background: $accent-color;
+                    color: white;
+                    padding: 0.3rem 0.8rem;
+                    border-radius: 15px;
+                    font-size: 1.1rem;
+                    font-weight: 500;
+                    margin-bottom: 1rem;
+                }
+
+                .room-info {
+                    margin-bottom: 1.5rem;
+
+                    .room-types {
+                        display: grid;
+                        gap: 0.8rem;
+
+                        .room-type {
+                            background: #f8f8ff;
+                            padding: 0.8rem;
+                            border-radius: 6px;
+                            border-left: 3px solid $border-color;
+
+                            .room-name {
+                                display: block;
+                                font-weight: 600;
+                                color: $title-font-color;
+                                font-size: 1.2rem;
+                                margin-bottom: 0.2rem;
+                            }
+
+                            .room-details {
+                                color: #666;
+                                font-size: 1.1rem;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+
+                .amenities {
+                    margin-bottom: 1.5rem;
+
+                    h4 {
+                        font-size: 1.3rem;
+                        color: $title-font-color;
+                        margin-bottom: 0.8rem;
+                        font-weight: 600;
+                    }
+
+                    ul {
+                        display: grid;
+                        grid-template-columns: repeat(
+                            auto-fit,
+                            minmax(200px, 1fr)
+                        );
+                        gap: 0.3rem;
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+
+                        li {
+                            color: black;
+                            font-size: 1.1rem;
+                            font-weight: 400;
+                            padding: 0.2rem 0;
+                            position: relative;
+                            padding-left: 1.5rem;
+
+                            &:before {
+                                content: "✓";
+                                position: absolute;
+                                left: 0;
+                                color: #10b981;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+
+                .pricing {
+                    display: flex;
+                    align-items: baseline;
+                    gap: 0.5rem;
+                    background: linear-gradient(
+                        135deg,
+                        #f0fdf4 0%,
+                        #dcfce7 100%
+                    );
+                    padding: 1rem;
+                    border-radius: 8px;
+                    border-left: 4px solid #10b981;
+
+                    .rate {
+                        font-size: 2rem;
+                        font-weight: 700;
+                        color: #166534;
+                    }
+
+                    .per-night {
+                        font-size: 1.2rem;
+                        color: #166534;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+
+    .filter-section {
+        background: #f8f8ff;
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid #e0e0e0;
+        position: sticky;
+        top: 2rem;
+        height: fit-content;
+
+        .filter-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $border-color;
+
+            h3 {
+                font-size: 1.5rem;
+                color: $title-font-color;
+                margin: 0;
+                font-weight: 600;
+            }
+        }
+
+        .filter-group {
+            margin-bottom: 2rem;
+
+            label {
+                display: block;
+                font-size: 1.2rem;
+                color: $title-font-color;
+                margin-bottom: 0.8rem;
+                font-weight: 600;
+            }
+
+            .filter-input,
+            .filter-select {
+                width: 100%;
+                padding: 0.8rem;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                font-size: 1.1rem;
+                font-family: inherit;
+                transition: border-color 0.3s ease;
+                box-sizing: border-box;
+
+                &:focus {
+                    outline: none;
+                    border-color: $border-color;
+                    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+                }
+            }
+
+            .price-range {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 0.8rem;
+
+                .price-input-group {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    flex: 1;
+
+                    label {
+                        font-size: 1rem;
+                        margin: 0;
+                        font-weight: 500;
+                        min-width: 35px;
+                    }
+
+                    .price-input {
+                        flex: 1;
+                        padding: 0.6rem;
+                        border: 1px solid #ddd;
+                        border-radius: 4px;
+                        font-size: 1rem;
+                        box-sizing: border-box;
+                    }
+                }
+
+                .price-separator {
+                    color: #666;
+                    font-weight: 500;
+                    padding: 0 0.5rem;
+                }
+            }
+
+            .price-display {
+                background: #e0f2fe;
+                color: $title-font-color;
+                padding: 0.8rem;
+                border-radius: 4px;
+                text-align: center;
+                font-weight: 600;
+                font-size: 1.1rem;
+            }
+
+            .amenities-filter {
+                .amenity-checkbox {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.8rem;
+                    margin-bottom: 0.8rem;
+                    padding: 0.2rem 0;
+
+                    input[type="checkbox"] {
+                        width: 18px;
+                        height: 18px;
+                        flex-shrink: 0;
+                    }
+
+                    label {
+                        font-size: 1.1rem;
+                        font-weight: 400;
+                        margin: 0;
+                        cursor: pointer;
+                        flex: 1;
+                    }
+                }
+            }
+        }
+
+        .active-filters {
+            border-top: 1px solid #ddd;
+            padding-top: 1.5rem;
+            margin-bottom: 2rem;
+
+            h4 {
+                font-size: 1.2rem;
+                color: $title-font-color;
+                margin-bottom: 1rem;
+                font-weight: 600;
+            }
+
+            .filter-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+
+                .filter-tag {
+                    background: $accent-color;
+                    color: white;
+                    padding: 0.4rem 0.8rem;
+                    border-radius: 15px;
+                    font-size: 0.95rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    button {
+                        background: none;
+                        border: none;
+                        color: white;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        padding: 0;
+                        width: 18px;
+                        height: 18px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        &:hover {
+                            background: rgba(255, 255, 255, 0.2);
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .clear-all {
+            background: #6b7280;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+
+            &:hover {
+                background: #4b5563;
+            }
+        }
+    }
+
+    // Responsive Design
+    @media (max-width: 1300px) {
+        .lodging-container {
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+        }
+    }
+
+    @media (max-width: 1100px) {
+        .lodging-container {
+            grid-template-columns: 1fr 350px;
+            gap: 2.5rem;
+        }
+    }
+
+    @media (max-width: 968px) {
+        .lodging-container {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .filter-section {
+            position: relative;
+            top: 0;
+            order: -1;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 1rem;
+
+        .page-header h1 {
+            font-size: 2rem;
+        }
+
+        .listing-card .listing-content {
+            padding: 1rem;
+
+            .amenities ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .filter-section {
+            padding: 1.5rem;
+        }
+    }
+}

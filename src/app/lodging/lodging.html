@@ -1,1 +1,181 @@
-<p>lodging works!</p>
+<div id="lodging-content">
+    <div class="page-header">
+        <h1>Lodging</h1>
+        <p>Find your perfect home away from home on Taniti</p>
+    </div>
+
+    <div class="lodging-container">
+        <div class="listings-section">
+            <p class="intro-text">
+                Taniti offers a wide variety of lodging options, from budget-friendly hostels to luxury resorts. 
+                All accommodations are strictly regulated and regularly inspected by the Tanitian government to ensure quality and safety.
+            </p>
+
+            <!-- Results counter -->
+            <div class="results-info">
+                <span class="results-count">{{ lodgings.length }} accommodation{{ lodgings.length !== 1 ? 's' : '' }} found</span>
+            </div>
+
+            <div class="listings-grid">
+                <div 
+                    class="listing-card" 
+                    *ngFor="let lodging of lodgings"
+                    [attr.data-type]="getLodgingTypeClass(lodging.type)"
+                    [attr.data-rate]="lodging.rate"
+                >
+                    <div class="listing-image">
+                        <img [src]="lodging.image" [alt]="lodging.name">
+                    </div>
+                    <div class="listing-content">
+                        <h3>{{ lodging.name }}</h3>
+                        <span class="lodging-type">{{ lodging.type }}</span>
+                        
+                        <div class="room-info">
+                            <div class="room-types">
+                                <div class="room-type" *ngFor="let room of lodging.roomTypes">
+                                    <span class="room-name">{{ room.name }}</span>
+                                    <span class="room-details">
+                                        {{ room.beds }} bed{{ room.beds > 1 ? 's' : '' }} • 
+                                        {{ formatBathrooms(room.bathrooms) }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="amenities">
+                            <h4>Amenities:</h4>
+                            <ul>
+                                <li *ngFor="let amenity of lodging.amenities">{{ amenity }}</li>
+                            </ul>
+                        </div>
+
+                        <div class="pricing">
+                            <span class="rate">${{ lodging.rate }}</span>
+                            <span class="per-night">per night</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No results message -->
+            <div class="no-results" *ngIf="lodgings.length === 0">
+                <h3>No accommodations found</h3>
+                <p>Try adjusting your filters to see more options.</p>
+                <button class="clear-filters-btn" (click)="clearFilters()">Clear All Filters</button>
+            </div>
+        </div>
+
+        <!-- Filter section -->
+        <div class="filter-section">
+            <div class="filter-header">
+                <h3>Filter Accommodations</h3>
+            </div>
+
+            <!-- Name filter -->
+            <div class="filter-group">
+                <label for="name-filter">Search by Name:</label>
+                <input 
+                    id="name-filter"
+                    type="text" 
+                    [(ngModel)]="filters.name" 
+                    (input)="applyFilters()"
+                    placeholder="Enter hotel name..."
+                    class="filter-input"
+                >
+            </div>
+
+            <!-- Type filter -->
+            <div class="filter-group">
+                <label for="type-filter">Accommodation Type:</label>
+                <select 
+                    id="type-filter"
+                    [(ngModel)]="filters.type" 
+                    (change)="applyFilters()"
+                    class="filter-select"
+                >
+                    <option value="">All Types</option>
+                    <option *ngFor="let type of lodgingTypes" [value]="type">{{ type }}</option>
+                </select>
+            </div>
+
+            <!-- Price range filter -->
+            <div class="filter-group">
+                <label>Price Range per Night:</label>
+                <div class="price-range">
+                    <div class="price-input-group">
+                        <label for="min-rate">Min:</label>
+                        <input 
+                            id="min-rate"
+                            type="number" 
+                            [(ngModel)]="filters.minRate" 
+                            (input)="applyFilters()"
+                            min="0" 
+                            max="500"
+                            class="price-input"
+                        >
+                    </div>
+                    <span class="price-separator">to</span>
+                    <div class="price-input-group">
+                        <label for="max-rate">Max:</label>
+                        <input 
+                            id="max-rate"
+                            type="number" 
+                            [(ngModel)]="filters.maxRate" 
+                            (input)="applyFilters()"
+                            min="0" 
+                            max="500"
+                            class="price-input"
+                        >
+                    </div>
+                </div>
+                <div class="price-display">
+                    ${{ filters.minRate }} - ${{ filters.maxRate }}
+                </div>
+            </div>
+
+            <!-- Amenities filter -->
+            <div class="filter-group">
+                <label>Amenities:</label>
+                <div class="amenities-filter">
+                    <div 
+                        *ngFor="let amenity of availableAmenities" 
+                        class="amenity-checkbox"
+                    >
+                        <input 
+                            type="checkbox" 
+                            [id]="'amenity-' + amenity"
+                            [checked]="isAmenitySelected(amenity)"
+                            (change)="toggleAmenity(amenity)"
+                        >
+                        <label [for]="'amenity-' + amenity">{{ amenity }}</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active filters display -->
+            <div class="active-filters" *ngIf="filters.name || filters.type || filters.amenities.length > 0">
+                <h4>Active Filters:</h4>
+                <div class="filter-tags">
+                    <span class="filter-tag" *ngIf="filters.name">
+                        Name: {{ filters.name }}
+                        <button (click)="filters.name = ''; applyFilters()">×</button>
+                    </span>
+                    <span class="filter-tag" *ngIf="filters.type">
+                        Type: {{ filters.type }}
+                        <button (click)="filters.type = ''; applyFilters()">×</button>
+                    </span>
+                    <span 
+                        class="filter-tag" 
+                        *ngFor="let amenity of filters.amenities"
+                    >
+                        {{ amenity }}
+                        <button (click)="toggleAmenity(amenity)">×</button>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Clear all button moved to bottom -->
+            <button class="clear-all" (click)="clearFilters()">Clear All Filters</button>
+        </div>
+    </div>
+</div>
