@@ -19,5 +19,16 @@
     </head>
     <body>
         <app-root></app-root>
+
+        <!-- GitHub Pages routing fix -->
+        <script>
+            (function () {
+                var redirect = sessionStorage.redirect;
+                delete sessionStorage.redirect;
+                if (redirect && redirect !== location.href) {
+                    history.replaceState(null, null, redirect);
+                }
+            })();
+        </script>
     </body>
 </html>
