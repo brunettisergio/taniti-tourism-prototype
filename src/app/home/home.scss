@@ -14,26 +14,38 @@
     font-weight: 600;
 }
 
+.hero-container {
+    position: relative;
+    display: inline-block;
+    width: 70%;
+    margin-bottom: 0;
+}
+
 #hero-image {
     margin-bottom: 0;
-    width: 70%;
+    width: 100%;
     height: auto;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: block;
 }
 
 #hero-quote {
-    margin-bottom: 0;
+    position: absolute;
+    bottom: 18%;
+    right: 4%;
+    margin: 0;
     font-family: "Bad Script", cursive;
-    font-size: 38px;
+    font-size: 2vw;
     color: whitesmoke;
-    position: relative;
-    transform: translateY(-190px);
-    left: 350px;
+    line-height: 1.2;
+    max-width: 40%;
+    text-align: right;
+    z-index: 2;
 }
 
 #hero-text {
-    margin-top: 0;
+    margin-top: 100px;
     margin-bottom: 0;
     padding: 0 300px 0 300px;
     transform: translateY(-50px);

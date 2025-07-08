@@ -9,25 +9,71 @@
                 />
             </a>
         </div>
-        <nav>
+
+        <!-- Hamburger Menu Button -->
+        <button
+            class="hamburger-menu"
+            (click)="toggleMenu()"
+            [class.active]="isMenuOpen"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Navigation Menu -->
+        <nav
+            class="nav-menu"
+            [class.active]="isMenuOpen"
+        >
             <ul id="navBar">
                 <li>
-                    <a routerLink="/">Home</a>
+                    <a
+                        routerLink="/"
+                        [class.active]="isActive('/')"
+                        (click)="closeMenu()"
+                        >Home</a
+                    >
                 </li>
                 <li>
-                    <a routerLink="/experiences">Experiences</a>
+                    <a
+                        routerLink="/experiences"
+                        [class.active]="isActive('/experiences')"
+                        (click)="closeMenu()"
+                        >Experiences</a
+                    >
                 </li>
                 <li>
-                    <a routerLink="/lodging">Lodging</a>
+                    <a
+                        routerLink="/lodging"
+                        [class.active]="isActive('/lodging')"
+                        (click)="closeMenu()"
+                        >Lodging</a
+                    >
                 </li>
                 <li>
-                    <a routerLink="/food-and-drinks">Food & Drinks</a>
+                    <a
+                        routerLink="/food-and-drinks"
+                        [class.active]="isActive('/food-and-drinks')"
+                        (click)="closeMenu()"
+                        >Food & Drinks</a
+                    >
                 </li>
                 <li>
-                    <a routerLink="/transportation">Transportation</a>
+                    <a
+                        routerLink="/transportation"
+                        [class.active]="isActive('/transportation')"
+                        (click)="closeMenu()"
+                        >Transportation</a
+                    >
                 </li>
                 <li>
-                    <a routerLink="/faq">FAQs</a>
+                    <a
+                        routerLink="/faq"
+                        [class.active]="isActive('/faq')"
+                        (click)="closeMenu()"
+                        >FAQs</a
+                    >
                 </li>
             </ul>
         </nav>
